@@ -61,6 +61,12 @@ $actors = $actorRepository->findAll();
             <h1 class="mb-5">Liste des films</h1>
             <!-- Gérer l'affichage des films dans un tableau ici -->
             <table>
+                <thead>
+                    <tr>
+                        <th>Titre</th>
+                        <th>Date de sortie</th>
+                    </tr>
+                </thead>
                 <tbody>
                     <?php foreach ($movies as $movie) : ?>
                         <tr>
@@ -77,6 +83,11 @@ $actors = $actorRepository->findAll();
             <h1 class="mb-5">Liste des Acteurs</h1>
             <!-- Gérer l'affichage des acteurs dans un tableau ici -->
             <table>
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                    </tr>
                 <tbody>
                     <?php foreach ($actors as $actor) : ?>
                         <tr>

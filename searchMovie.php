@@ -59,6 +59,10 @@ if (isset($_POST['title-search'])) {
         <div class="mx-auto w-75">
             <h1 class="mb-5">Résultat de la recherche</h1>
             <table>
+                <thead>
+                    <tr>
+                        <th>Titre</th>
+                    </tr>
                 <tbody>
                     <?php foreach ($movies as $movie) : ?>
                         <tr>
