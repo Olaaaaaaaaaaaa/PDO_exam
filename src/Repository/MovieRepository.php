@@ -26,7 +26,9 @@ class MovieRepository
     public function findByTitle(string $title): array
     {
         $query = $this->PDOService->getPdo()->prepare('SELECT * FROM movie WHERE title LIKE :title');
+
         $like = '%' . $title . '%';
+
         $query->bindParam(':title', $like);
         $query->execute();
 
@@ -37,12 +39,16 @@ class MovieRepository
     public function insertMovie(Movie|array $movie): Movie|array
     {
         $query = $this->PDOService->getPdo()->prepare('INSERT INTO movie Value (NULL, :title, :releaseDate)');
+
         $title = $movie->getTitle();
         $date = $movie->getReleaseDate();
+
         $releaseDate = $date->format('Y-m-d');
+
         $query->bindParam(':title', $title);
         $query->bindParam(':releaseDate', $releaseDate);
         $query->execute();
+
         return $movie;
     }
 }

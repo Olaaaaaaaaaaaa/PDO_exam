@@ -26,11 +26,14 @@ class ActorRepository
     public function insertActor(Actor|array $actor): Actor|array
     {
         $query = $this->PDOService->getPdo()->prepare('INSERT INTO actor Value (NULL, :firstName, :lastName)');
+
         $firstName = $actor->getFirstName();
         $lastName = $actor->getLastName();
+
         $query->bindParam(':firstName', $firstName);
         $query->bindParam(':lastName', $lastName);
         $query->execute();
+
         return $actor;
     }
 }
